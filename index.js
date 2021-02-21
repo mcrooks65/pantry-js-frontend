@@ -4,6 +4,13 @@ const endPoint = "http://127.0.0.1:3000/api/v1/foods"
 
 document.addEventListener('DOMContentLoaded', () => {
     getFoods();
+
+    let createFoodForm = document.querySelector('#create-food-form');
+
+    createFoodForm.addEventListener('submit', (e) => 
+
+    createFormHandler(e));
+
 })
 
 function getFoods() {
@@ -23,4 +30,16 @@ function getFoods() {
         document.querySelector('#food-container').innerHTML += foodMarkup
         });
     })
+}
+
+function createFormHandler(e) {
+    e.preventDefault();
+    // console.log(e);
+    const nameInput = document.querySelector('#input-name').value
+    const categoryInput = document.querySelector('#input-category').value
+    const quantityInput = document.querySelector('#input-quantity').value
+    const pantryIdInput = document.querySelector('#pantry_id').value
+    console.log(`New Food Submitted to Pantry!\nName: ${nameInput}\nCategory: ${categoryInput}\nQuantity: ${quantityInput}\npantry_id: ${pantryIdInput}`)
+
+    postFetch(nameInput, categoryInput, quantityInput, pantryIdInput) gi
 }
