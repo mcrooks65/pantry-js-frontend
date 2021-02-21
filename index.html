@@ -6,6 +6,32 @@
         <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
+        <div class="food-form-container">
+
+            <form id="create-food-form" style="">
+              <h2>Add food to the Pantry!</h2>
+              <input id='input-name' type="text" name="name" value="" placeholder="Enter your food name..." class="input-text">
+              <br>
+              <h3>Category</h3>
+              <textarea id='input-category' name="category" value="" placeholder="Fruit/Baking/Frozen Food etc."></textarea>
+              <br>
+              <h3>Quantity</h3>
+              <input id='input-quantity' type="text" name="image" value="" placeholder="Enter Quantity" class="input-text">
+              <br>
+              <h3>Add to which Pantry?</h3>
+              <select id="pantry_id" name="pantry_id">
+                <option value="1">The Big Pantry</option>
+                <option value="2">The Second Pantry</option>
+              </select>
+              <br><br>
+              <input id= 'create-button' type="submit" name="submit" value="Add Food to Pantry" class="submit">
+            </form>
+      
+          </div>
+      
+      <br><br>
+
         <div id="food-container"></div>
+
     </body>
 </html>
