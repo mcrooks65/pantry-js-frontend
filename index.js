@@ -34,12 +34,35 @@ function getFoods() {
 
 function createFormHandler(e) {
     e.preventDefault();
-    // console.log(e);
     const nameInput = document.querySelector('#input-name').value
     const categoryInput = document.querySelector('#input-category').value
     const quantityInput = document.querySelector('#input-quantity').value
-    const pantryIdInput = document.querySelector('#pantry_id').value
+    const pantryIdInput = parseInt(document.querySelector('#pantry_id').value)
     console.log(`New Food Submitted to Pantry!\nName: ${nameInput}\nCategory: ${categoryInput}\nQuantity: ${quantityInput}\npantry_id: ${pantryIdInput}`)
+    postFoodFetch(nameInput, categoryInput, quantityInput, pantryIdInput)
+}
 
-    postFetch(nameInput, categoryInput, quantityInput, pantryIdInput) gi
+function postFoodFetch(name, category, quantity, pantry_id) {
+
+    const bodyData = {name, category, quantity, pantry_id}
+
+    fetch(endPoint, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(bodyData)
+    })
+    .then(response => response.json())
+    .then(food => {
+        const foodData = food.data.attributes
+        const foodMarkup = `
+        <div data-id=${foodData.id}>
+            <h2>${foodData.name}</h2>
+            <h3>Quantity: ${foodData.quantity}</h3>
+            <p>${foodData.category}</p>
+            <button data-id=${foodData.id}>edit</button>
+        </div>
+        <br>`;
+
+        document.querySelector('#food-container').innerHTML += foodMarkup;
+    })
 }
