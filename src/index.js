@@ -18,7 +18,11 @@ function getFoods() {
     .then(response => response.json())
     .then(foods => {
         console.log(foods);
-        foods.data.forEach(food =>{render(food)});
+        foods.data.forEach(food =>{
+            
+            let newFood = new Food(food, food.attributes)
+            render(food)});
+            
     })
 }
 
