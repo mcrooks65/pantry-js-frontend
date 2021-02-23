@@ -18,8 +18,12 @@ function getFoods() {
     .then(response => response.json())
     .then(foods => {
         console.log(foods);
-        foods.data.forEach(food =>{           
-        const foodMarkup = `
+        foods.data.forEach(food =>{render(food)});
+    })
+}
+
+function render(food) {
+    const foodMarkup = `
         <div data-id=${food.id}>
             <h2>${food.attributes.name}</h2>
             <h3>Quantity: ${food.attributes.quantity}</h3>
@@ -27,9 +31,8 @@ function getFoods() {
             <button data-id=${food.id}>edit</button>
         </div>
         <br>`;
-        document.querySelector('#food-container').innerHTML += foodMarkup
-        });
-    })
+        document.querySelector('#food-container').innerHTML += foodMarkup;
+
 }
 
 function createFormHandler(e) {
@@ -53,16 +56,7 @@ function postFoodFetch(name, category, quantity, pantry_id) {
     })
     .then(response => response.json())
     .then(food => {
-        const foodData = food.data.attributes
-        const foodMarkup = `
-        <div data-id=${foodData.id}>
-            <h2>${foodData.name}</h2>
-            <h3>Quantity: ${foodData.quantity}</h3>
-            <p>${foodData.category}</p>
-            <button data-id=${foodData.id}>edit</button>
-        </div>
-        <br>`;
-
-        document.querySelector('#food-container').innerHTML += foodMarkup;
+        const foodData = food.data;
+        render(foodData);
     })
 }
