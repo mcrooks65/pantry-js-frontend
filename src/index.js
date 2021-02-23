@@ -1,4 +1,4 @@
-console.log("index.html file is hooked into index.js!!!")
+console.log("index.js file is hooked into index.html!!!")
 
 const endPoint = "http://127.0.0.1:3000/api/v1/foods"
 
