@@ -22,6 +22,10 @@ class Food {
             </div>
             <br>`;
     }
+
+    static findByName(name) {
+        return this.all.find(food => food.name === name);
+      }  // Currently unused but working static utlity function.
 }
 
 Food.all = [];
