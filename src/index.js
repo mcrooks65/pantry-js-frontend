@@ -4,13 +4,9 @@ const endPoint = "http://127.0.0.1:3000/api/v1/foods"
 
 document.addEventListener('DOMContentLoaded', () => {
     getFoods();
-
     let createFoodForm = document.querySelector('#create-food-form');
-
     createFoodForm.addEventListener('submit', (e) => 
-
     createFormHandler(e));
-
 })
 
 function getFoods() {
@@ -18,25 +14,11 @@ function getFoods() {
     .then(response => response.json())
     .then(foods => {
         console.log(foods);
-        foods.data.forEach(food =>{
-            
+        foods.data.forEach(food => {      
             let newFood = new Food(food, food.attributes)
-            render(food)});
-            
+            document.querySelector('#food-container').innerHTML += newFood.renderFoodCard();
+        })
     })
-}
-
-function render(food) {
-    const foodMarkup = `
-        <div data-id=${food.id}>
-            <h2>${food.attributes.name}</h2>
-            <h3>Quantity: ${food.attributes.quantity}</h3>
-            <p>${food.attributes.category}</p>
-            <button data-id=${food.id}>edit</button>
-        </div>
-        <br>`;
-        document.querySelector('#food-container').innerHTML += foodMarkup;
-
 }
 
 function createFormHandler(e) {
@@ -50,9 +32,7 @@ function createFormHandler(e) {
 }
 
 function postFoodFetch(name, category, quantity, pantry_id) {
-
     const bodyData = {name, category, quantity, pantry_id}
-
     fetch(endPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
