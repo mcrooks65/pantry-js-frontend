@@ -7,6 +7,9 @@
         <script type="text/javascript" src="src/food.js"></script>
     </head>
     <body>
+        
+        <div id="pantry-container"></div>
+
         <div class="food-form-container">
 
             <form id="create-food-form" style="">
@@ -19,10 +22,10 @@
               <h3>Quantity</h3>
               <input id='input-quantity' type="text" name="image" value="" placeholder="Enter Quantity" class="input-text">
               <br>
-              <h3>Add to which Pantry?</h3>
+              <h3>Store food where?</h3>
               <select id="pantry_id" name="pantry_id">
-                <option value="1">The Big Pantry</option>
-                <option value="2">The Second Pantry</option>
+                <option value="1">Pantry</option>
+                <option value="2">Fridge</option>
               </select>
               <br><br>
               <input id= 'create-button' type="submit" name="submit" value="Add Food to Pantry" class="submit">
