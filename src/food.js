@@ -18,14 +18,14 @@ class Food {
                 <h2>${this.name}</h2>
                 <h3>Quantity: ${this.quantity}</h3>
                 <p>${this.category}</p>
-                <button data-id=${this.id}>edit</button>
+                <button data-id=${this.id}>Take ${this.name}</button>
             </div>
             <br>`;
     }
 
     static findByName(name) {
         return this.all.find(food => food.name === name);
-      }  // Currently unused but working static utlity function.
+      }  // Currently unused but working static utility function.
 }
 
 Food.all = [];
