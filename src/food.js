@@ -11,6 +11,17 @@ class Food {
         Food.all.push(this);
         
     }
+
+    renderFoodCard() {
+         return `
+            <div data-id=${this.id}>
+                <h2>${this.name}</h2>
+                <h3>Quantity: ${this.quantity}</h3>
+                <p>${this.category}</p>
+                <button data-id=${this.id}>edit</button>
+            </div>
+            <br>`;
+    }
 }
 
 Food.all = [];
