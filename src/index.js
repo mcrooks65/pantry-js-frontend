@@ -1,16 +1,31 @@
 console.log("index.js file is hooked into index.html!!!")
 
-const endPoint = "http://127.0.0.1:3000/api/v1/foods"
+const pantriesEndPoint = "http://127.0.0.1:3000/api/v1/pantries";
+const foodsEndPoint = "http://127.0.0.1:3000/api/v1/foods";
 
 document.addEventListener('DOMContentLoaded', () => {
+    getPantries();
     getFoods();
     let createFoodForm = document.querySelector('#create-food-form');
     createFoodForm.addEventListener('submit', (e) => 
     createFormHandler(e));
 })
 
+function getPantries() {
+    fetch(pantriesEndPoint)
+    .then(response => response.json())
+    .then(pantries => {  
+        pantries.data.forEach(pantry => {
+            console.log(pantry.attributes.name)
+            console.log(pantry.attributes.foods.forEach(food => {
+                console.log(food.name);
+            }));
+        })
+    })
+}
+
 function getFoods() {
-    fetch(endPoint)
+    fetch(foodsEndPoint)
     .then(response => response.json())
     .then(foods => {
         console.log(foods);
@@ -33,7 +48,7 @@ function createFormHandler(e) {
 
 function postFoodFetch(name, category, quantity, pantry_id) {
     const bodyData = {name, category, quantity, pantry_id}
-    fetch(endPoint, {
+    fetch(foodsEndPoint, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(bodyData)
