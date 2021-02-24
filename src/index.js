@@ -41,6 +41,7 @@ function postFoodFetch(name, category, quantity, pantry_id) {
     .then(response => response.json())
     .then(food => {
         const foodData = food.data;
-        render(foodData);
+        let newFood = new Food(foodData, foodData.attributes)
+        document.querySelector('#food-container').innerHTML += newFood.renderFoodCard();
     })
 }
