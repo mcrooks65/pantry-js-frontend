@@ -16,10 +16,19 @@ function getPantries() {
     .then(response => response.json())
     .then(pantries => {  
         pantries.data.forEach(pantry => {
-            console.log(pantry.attributes.name)
-            console.log(pantry.attributes.foods.forEach(food => {
+            // const pantryMarkup = `
+            //     <div data-id=${pantry.id}>
+            //         <h2>${pantry.attributes.name}</h2>
+            //     </div>
+            //     <br>
+            //     `;
+            //     document.querySelector('#pantry-container').innerHTML += pantryMarkup;
+            let pantryAttributes  = pantry.attributes  
+            let newPantry = new Pantry(pantry, pantryAttributes)
+            console.log(newPantry.name)
+            console.log(newPantry.foods.forEach(food => {
                 console.log(food.name);
-            }));
+            }))
         })
     })
 }
@@ -28,7 +37,7 @@ function getFoods() {
     fetch(foodsEndPoint)
     .then(response => response.json())
     .then(foods => {
-        console.log(foods);
+        // console.log(foods);
         foods.data.forEach(food => {      
             let newFood = new Food(food, food.attributes)
             document.querySelector('#food-container').innerHTML += newFood.renderFoodCard();
