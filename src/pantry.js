@@ -8,22 +8,27 @@ class Pantry {
         Pantry.all.push(this);
     }
     renderPantryCard() {
-        const foodsArray = [];
-        this.foods.forEach(food => {
-            foodsArray.push(food.name)
-        });
-        console.log(`foodsArray: ${foodsArray}`)
         return `
             <div data-id=${this.id}>
                 <h2>${this.name}</h2>
-                <p>Pantry ID is ${this.id}</p>
-                <p>Foods: ${foodsArray}</p>
-            </div>
+                <p>Pantry ID is ${this.id}</p>` +
+            this.renderFoodsCard()
+            +
+            `</div>
             <br>
             `;    
+    }     
+
+    renderFoodsCard() {
+        let foodsLength = this.foods.length;
+        let returnString = "";
+        for(let i=0;i<foodsLength;i++){
+            let foodString = '<p>' + this.foods[i].name + '</p>';
+            returnString = returnString.concat(foodString);
+        }
+        console.log(returnString)
+        return returnString;
     }
-            
-            
 }
 
 Pantry.all = [];
