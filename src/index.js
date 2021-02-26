@@ -16,16 +16,10 @@ function getPantries() {
     .then(response => response.json())
     .then(pantries => {  
         pantries.data.forEach(pantry => {
-            // const pantryMarkup = `
-            //     <div data-id=${pantry.id}>
-            //         <h2>${pantry.attributes.name}</h2>
-            //     </div>
-            //     <br>
-            //     `;
-            //     document.querySelector('#pantry-container').innerHTML += pantryMarkup;
             let pantryAttributes  = pantry.attributes  
             let newPantry = new Pantry(pantry, pantryAttributes)
             console.log(newPantry.name)
+            document.querySelector('#pantry-container').innerHTML += newPantry.renderPantryCard()
             console.log(newPantry.foods.forEach(food => {
                 console.log(food.name);
             }))

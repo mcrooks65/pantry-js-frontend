@@ -7,6 +7,23 @@ class Pantry {
         this.foods = pantryAttributes.foods;
         Pantry.all.push(this);
     }
+    renderPantryCard() {
+        const foodsArray = [];
+        this.foods.forEach(food => {
+            foodsArray.push(food.name)
+        });
+        console.log(`foodsArray: ${foodsArray}`)
+        return `
+            <div data-id=${this.id}>
+                <h2>${this.name}</h2>
+                <p>Pantry ID is ${this.id}</p>
+                <p>Foods: ${foodsArray}</p>
+            </div>
+            <br>
+            `;    
+    }
+            
+            
 }
 
 Pantry.all = [];
