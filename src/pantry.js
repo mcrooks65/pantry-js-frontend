@@ -12,8 +12,7 @@ class Pantry {
             <div data-id=${this.id}>
                 <h2>${this.name}</h2>
                 <p>Pantry ID is ${this.id}</p>` +
-            this.renderFoodsCard()
-            +
+                this.renderFoodsCard() +
             `</div>
             <br>
             `;    
@@ -28,6 +27,10 @@ class Pantry {
         }
         console.log(returnString)
         return returnString;
+    }
+
+    static findPantryById(id) {
+        return this.all.find(pantry => {pantry.id === id})
     }
 }
 
