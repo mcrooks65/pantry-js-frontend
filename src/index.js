@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 
 function getPantries() {
+    document.querySelector('#pantry-container').innerHTML = '';
     fetch(pantriesEndPoint)
     .then(response => response.json())
     .then(pantries => {  
         pantries.data.forEach(pantry => {
             let pantryAttributes  = pantry.attributes  
             let newPantry = new Pantry(pantry, pantryAttributes)
-            console.log(newPantry.name)
             document.querySelector('#pantry-container').innerHTML += newPantry.renderPantryCard()
         })
-    })
+    });
 }
 
 function getFoods() {
@@ -54,10 +54,9 @@ function postFoodFetch(name, category, quantity, pantry_id) {
     })
     .then(response => response.json())
     .then(food => {
+        getPantries();
         const foodData = food.data;
         let newFood = new Food(foodData, foodData.attributes)
-        document.querySelector('#pantry-container').innerHTML = ''
-        getPantries();
         document.querySelector('#food-container').innerHTML += newFood.renderFoodCard();
     })
 }

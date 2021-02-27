@@ -25,7 +25,6 @@ class Pantry {
             let foodString = '<p>' + this.foods[i].name + '</p>';
             returnString = returnString.concat(foodString);
         }
-        console.log(returnString)
         return returnString;
     }
 
