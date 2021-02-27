@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let createFoodForm = document.querySelector('#create-food-form');
     createFoodForm.addEventListener('submit', (e) => 
     createFormHandler(e));
+    let deleteFood = document.querySelector('#food-container');
+    deleteFood.addEventListener('click', (e) => deleteHandler(e));
+
 })
 
 function getPantries() {
@@ -33,6 +36,12 @@ function getFoods() {
             document.querySelector('#food-container').innerHTML += newFood.renderFoodCard();
         })
     })
+}
+
+function deleteHandler(e) {
+    e.preventDefault();
+    let foodId = e.toElement.id
+    console.log(`You clicked ${foodId}`);
 }
 
 function createFormHandler(e) {
