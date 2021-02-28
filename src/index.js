@@ -10,9 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createFoodForm.addEventListener('submit', (e) => 
     createFormHandler(e));
     let deleteFood = document.querySelector('#food-container');
-    
     deleteFood.addEventListener('click', (e) => deleteHandler(e));
-
 })
 
 function getPantries() {
@@ -29,6 +27,7 @@ function getPantries() {
 }
 
 function getFoods() {
+    document.querySelector('#food-container').innerHTML = '';
     fetch(foodsEndPoint)
     .then(response => response.json())
     .then(foods => {
@@ -68,14 +67,18 @@ function postFoodFetch(name, category, quantity, pantry_id) {
 function deleteHandler(e) {
     e.preventDefault();
     let foodId = e.toElement.id
-    console.log(`You clicked foodId:${foodId}`);
     deleteFoodFetch(foodId);
 }
 
 function deleteFoodFetch(id) {
-    console.log(id);
+    console.log(`Deleting food with ID:${id}`);
     fetch(foodsEndPoint+`/${id}`, {
         method: "DELETE",
         headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response)
+    .then(food => {
+        getPantries();
+        getFoods();
     })
 }
