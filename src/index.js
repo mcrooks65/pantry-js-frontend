@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let createFoodForm = document.querySelector('#create-food-form');
     createFoodForm.addEventListener('submit', (e) => 
     createFormHandler(e));
+    let deleteFood = document.querySelector('#food-container');
+    deleteFood.addEventListener('click', (e) => deleteHandler(e));
 })
 
 function getPantries() {
@@ -25,6 +27,7 @@ function getPantries() {
 }
 
 function getFoods() {
+    document.querySelector('#food-container').innerHTML = '';
     fetch(foodsEndPoint)
     .then(response => response.json())
     .then(foods => {
@@ -58,5 +61,24 @@ function postFoodFetch(name, category, quantity, pantry_id) {
         const foodData = food.data;
         let newFood = new Food(foodData, foodData.attributes)
         document.querySelector('#food-container').innerHTML += newFood.renderFoodCard();
+    })
+}
+
+function deleteHandler(e) {
+    e.preventDefault();
+    let foodId = e.toElement.id
+    deleteFoodFetch(foodId);
+}
+
+function deleteFoodFetch(id) {
+    console.log(`Deleting food with ID:${id}`);
+    fetch(foodsEndPoint+`/${id}`, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"}
+    })
+    .then(response => response)
+    .then(food => {
+        getPantries();
+        getFoods();
     })
 }

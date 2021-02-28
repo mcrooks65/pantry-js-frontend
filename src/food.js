@@ -14,13 +14,12 @@ class Food {
 
     renderFoodCard() {
          return `
-            <div data-id=${this.id}>
+            <div food-id=${this.id}>
                 <h2>${this.name}</h2>
                 <h3>Quantity: ${this.quantity}</h3>
                 <p>${this.category}</p>
-                <button data-id=${this.id}>Take ${this.name}</button>
-            </div>
-            <br>`;
+                <button id=${this.id}>Take ${this.name}</button>
+            </div>`;
     }
 
     static findByName(name) {
