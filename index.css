@@ -3,12 +3,16 @@
     padding-bottom: 15px;
     background-color: rgba(119, 86, 25, 0.385);
     border: 1px solid rgba(86, 61, 124, .2);
-  }
-  
-  .themed-container {
+}
+
+.themed-container {
     padding: 15px;
     margin-bottom: 30px;
     background-color: rgba(0, 123, 255, .15);
     border: 1px solid rgba(0, 123, 255, .2);
-  }
-  
+}
+
+body {background-color: rgba(130, 15, 15, 0.481);}
+h1 { font:  small-caps bolder 50px Georgia, serif;} 
+p { font: italic small-caps bold 21px Georgia, serif;}
+div {text-align: center;}
