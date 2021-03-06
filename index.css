@@ -14,5 +14,8 @@
 
 body {background-color: rgba(130, 15, 15, 0.481);}
 h1 { font:  small-caps bolder 50px Georgia, serif;} 
-p { font: italic small-caps bold 21px Georgia, serif;}
+h2 { font:  small-caps bold 35px Georgia, serif;} 
+h3 { font:  small-caps 28px Georgia, serif;} 
+p { font: small-caps  21px Georgia, serif;}
+p.b { font: italic small-caps bold 21px Georgia, serif;}
 div {text-align: center;}

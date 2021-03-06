@@ -10,8 +10,7 @@ class Pantry {
     renderPantryCard() {
         return `
             <div data-id=${this.id}>
-                <h2>${this.name}</h2>
-                <p>Pantry ID is ${this.id}</p>` +
+                <h2>${this.name}</h2>` +
                 this.renderFoodsCard() +
             `</div>
             <br>
@@ -22,7 +21,7 @@ class Pantry {
         let foodsLength = this.foods.length;
         let returnString = "";
         for(let i=0;i<foodsLength;i++){
-            let foodString = '<p>' + this.foods[i].name + '</p>';
+            let foodString = '<p class="b">' + this.foods[i].name + '</p>';
             returnString = returnString.concat(foodString);
         }
         return returnString;
