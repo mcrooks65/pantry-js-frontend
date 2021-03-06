@@ -1,21 +1,21 @@
 .themed-grid-col {
     padding-top: 15px;
     padding-bottom: 15px;
-    background-color: rgba(119, 86, 25, 0.385);
-    border: 1px solid rgba(86, 61, 124, .2);
+    background-color: #8E8268;
+    border: 8px solid #844D36;
 }
 
 .themed-container {
     padding: 15px;
     margin-bottom: 30px;
-    background-color: rgba(0, 123, 255, .15);
-    border: 1px solid rgba(0, 123, 255, .2);
+    background-color:#5a5c6a;
+    border: 8px solid#844D36;
 }
 
-body {background-color: rgba(130, 15, 15, 0.481);}
-h1 { font:  small-caps bolder 50px Georgia, serif;} 
-h2 { font:  small-caps bold 35px Georgia, serif;} 
-h3 { font:  small-caps 28px Georgia, serif;} 
+body {background-color: #AAA0A0;}
+h1 { font:  small-caps bolder 65px Georgia, serif;} 
+h2 { font:  small-caps bold 42px Georgia, serif;} 
+h3 { font:  small-caps  28px Georgia, serif;} 
 p { font: small-caps  21px Georgia, serif;}
 p.b { font: italic small-caps bold 21px Georgia, serif;}
 div {text-align: center;}
