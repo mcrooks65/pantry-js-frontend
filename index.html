@@ -1,42 +1,57 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-        <script type="text/javascript" src="src/index.js"></script>
-        <script type="text/javascript" src="src/pantry.js"></script>
-        <script type="text/javascript" src="src/food.js"></script>
-    </head>
-    <body>
-        
-        <div id="pantry-container"></div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <div class="food-form-container">
+    <title>Pantry Application - JS Project Build</title>
 
-            <form id="create-food-form" style="">
-              <h2>Add food to the Pantry!</h2>
-              <input id='input-name' type="text" name="name" value="" placeholder="Enter your food name..." class="input-text">
-              <br>
-              <h3>Category</h3>
-              <textarea id='input-category' name="category" value="" placeholder="Fruit/Baking/Frozen Food etc."></textarea>
-              <br>
-              <h3>Quantity</h3>
-              <input id='input-quantity' type="text" name="image" value="" placeholder="Enter Quantity" class="input-text">
-              <br>
-              <h3>Store food where?</h3>
-              <select id="pantry_id" name="pantry_id">
-                <option value="1">Pantry</option>
-                <option value="2">Fridge</option>
-              </select>
-              <br><br>
-              <input id= 'create-button' type="submit" name="submit" value="Add Food to Pantry" class="submit">
-            </form>
-      
-          </div>
-      
-      <br><br>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/pantry.js"></script>
+    <script type="text/javascript" src="src/food.js"></script>
 
-        <div id="food-container"></div>
-
-    </body>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+    <!-- Custom styles for this template -->
+    <link href="index.css" rel="stylesheet">
+    
+  </head>
+  <body class="py-4">
+    <div class="container-xl">
+        <h1>What's in your pantry?</h1>   
+        <div class="row mb-3">
+            <div id="pantry-container" class="col-md-6 themed-grid-col"></div>
+            <div class="col-md-6 themed-grid-col">
+                <div class="food-form-container">
+                    <form id="create-food-form" >
+                        <h2>Add food to the Pantry!</h2>
+                        <br>
+                        <label>Name</label>
+                        <input class= "form-control" id='input-name' type="text" name="name" value="" placeholder="Enter food name here" class="input-text">
+                        <br>
+                        <label>Category</label>
+                        <textarea class= "form-control" id='input-category' name="category" value="" placeholder="Fruit/Baking/Frozen Food etc."></textarea>
+                        <br>
+                        <label>Quantity</label>
+                        <input class= "form-control" id='input-quantity' type="text" name="image" value="" placeholder="Enter Quantity" class="input-text">
+                        <br>
+                        <div class="form-group">
+                            <label>Store food where?</label>
+                            <select class="form-control" id="pantry_id" name="pantry_id">
+                              <option value="1">Pantry</option>
+                              <option value="2">Fridge</option>
+                            </select>
+                          </div>
+                        <br>
+                        <button id= 'create-button' type="submit" name="submit" class="btn btn-lg btn-outline-dark">Add Food To Pantry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="food-container" class="container-fluid themed-container"></div>
+    </div>
+  </body>
 </html>

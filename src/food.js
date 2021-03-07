@@ -17,9 +17,10 @@ class Food {
             <div food-id=${this.id}>
                 <h2>${this.name}</h2>
                 <h3>Quantity: ${this.quantity}</h3>
-                <p>${this.category}</p>
-                <button id=${this.id}>Take ${this.name}</button>
-            </div>`;
+                <p>Category: ${this.category}</p>
+                <button type="button" class="btn btn-outline-warning" id=${this.id}>Take ${this.name}</button>
+                <br><br> 
+             </div>`;
     }
 
     static findByName(name) {
